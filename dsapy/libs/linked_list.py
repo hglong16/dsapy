@@ -141,6 +141,34 @@ class LinkedList(Generic[T]):
 
         return value
 
+    def remove_after(self, node: Node[T]) -> T | None:
+        """Remove node after node
+
+        Args:
+            node (Node[T]): Node in LinkedList
+
+        Returns:
+            T | None: Value of node removed
+        """
+        if node.next is None:
+            return None
+
+        if node.next == self.tail:
+            return self.remove_last()
+
+        value = node.next.value
+        node.next = node.next.next
+
+        return value
+
+    def __iter__(self) -> LinkedList[T]:
+        return self
+
+    def __next__(self) -> T:
+        if self.is_empty:
+            raise StopIteration
+        return self.pop()  # type: ignore
+
     def __str__(self) -> str:
         if self.is_empty:
             return "Empty list"

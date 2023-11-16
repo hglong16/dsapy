@@ -6,7 +6,7 @@ authors = ["hglong16 <intihad.vuong@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.12"
+python = "^3.11"
 ruff = "^0.1.5"
 pytest = "^7.4.3"
 
