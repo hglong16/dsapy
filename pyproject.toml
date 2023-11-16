@@ -6,8 +6,15 @@ authors = ["hglong16 <intihad.vuong@gmail.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]
-python = "^3.10"
+python = "^3.12"
+ruff = "^0.1.5"
+pytest = "^7.4.3"
 
+# pyproject.toml
+[tool.pytest.ini_options]
+minversion = "6.0"
+addopts = "-ra -q"
+testpaths = ["tests"]
 
 [build-system]
 requires = ["poetry-core"]
