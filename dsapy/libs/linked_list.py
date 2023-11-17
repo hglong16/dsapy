@@ -1,13 +1,10 @@
 from __future__ import annotations
 
 from dataclasses import dataclass
-from typing import Generic, TypeVar
-
-T = TypeVar("T")
 
 
 @dataclass
-class Node(Generic[T]):
+class Node[T]:
     value: T
     next: Node[T] | None = None
 
@@ -22,7 +19,7 @@ class Node(Generic[T]):
 
 
 @dataclass
-class LinkedList(Generic[T]):
+class LinkedList[T]:
     """Linked list implementation
 
     Args:
@@ -160,6 +157,41 @@ class LinkedList(Generic[T]):
         node.next = node.next.next
 
         return value
+
+    def remove_all(self, value: T) -> None:
+        """Remove all nodes with value
+
+        Args:
+            value (T): Value to remove
+        """
+        if self.head is None or self.tail is None:
+            return
+
+        if self.head.value == value:
+            self.pop()
+
+        current_node = self.head
+
+        while current_node != self.tail and current_node.next is not None:
+            if current_node.next.value == value:
+                self.remove_after(current_node)
+                continue
+            current_node = current_node.next
+
+    def reverse(self) -> None:
+        """Reverse LinkedList"""
+        self.tail = self.head
+
+        current_node = self.head
+        previous_node = None
+
+        while current_node is not None:
+            next_node = current_node.next
+            current_node.next = previous_node
+            previous_node = current_node
+            current_node = next_node
+
+        self.head = previous_node
 
     def __iter__(self) -> LinkedList[T]:
         return self
