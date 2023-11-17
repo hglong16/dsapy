@@ -1,4 +1,4 @@
-from dsapy.libs.linked_list import LinkedList
+from dsapy.libs.linked_list.linked_list import LinkedList
 
 
 def test_remove_all():
