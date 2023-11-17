@@ -25,19 +25,19 @@ class LinkedList[T](ABC):
 
     @abstractmethod
     def append(self, value: T) -> None:
-        pass
+        ...
 
     @abstractmethod
     def push(self, value: T) -> None:
-        pass
+        ...
 
     @abstractmethod
     def pop(self) -> T | None:
-        pass
+        ...
 
     @abstractmethod
     def remove_last(self) -> T | None:
-        pass
+        ...
 
 
 @dataclass
