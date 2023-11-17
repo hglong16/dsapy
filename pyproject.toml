@@ -11,6 +11,10 @@ ruff = "^0.1.5"
 pytest = "^7.4.3"
 
 # pyproject.toml
+
+[tool.poetry.group.dev.dependencies]
+mypy = "^1.7.0"
+
 [tool.pytest.ini_options]
 minversion = "6.0"
 addopts = "-ra -q"
