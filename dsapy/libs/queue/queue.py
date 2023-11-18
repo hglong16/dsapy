@@ -2,6 +2,8 @@ from abc import ABC, abstractmethod
 from dataclasses import dataclass, field
 from typing import List
 
+from dsapy.libs.linked_list.doubly_linked_list import DoublyLinkedList
+
 
 class Queue[T](ABC):
     @property
@@ -44,3 +46,26 @@ class QueueList[T](Queue[T]):
 
     def __str__(self) -> str:
         return f"[{', '.join([str(value) for value in self._list])}]"
+
+
+class QueueLinkedList[T](Queue[T]):
+    _list = DoublyLinkedList[T]()
+
+    @property
+    def is_empty(self) -> bool:
+        return self._list.is_empty
+
+    def enqueue(self, value: T) -> bool:
+        self._list.append(value)
+        return True
+
+    def dequeue(self) -> T | None:
+        return self._list.pop()
+
+    def peek(self) -> T | None:
+        if self._list.head is None:
+            return None
+        return self._list.head.value
+
+    def __str__(self) -> str:
+        return str(self._list)
