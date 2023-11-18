@@ -1,5 +1,5 @@
 {
-  "cSpell.words": ["dsapy", "inseted"],
+  "cSpell.words": ["dsapy", "inseted", "mypy"],
   "python.analysis.typeCheckingMode": "basic",
   "[python]": {
     "editor.formatOnSave": true,
